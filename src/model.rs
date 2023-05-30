@@ -1,10 +1,8 @@
-pub struct User {
-    pub id: i32,
-    pub email: String,
-}
+use crate::schema::users;
+use serde::{Deserialize, Serialize};
 
-impl User {
-    pub fn new(id: i32, email: String) -> User {
-        User { id, email }
-    }
+#[derive(Queryable, Insertable, Deserialize, Serialize)]
+#[table_name = "users"]
+pub struct User {
+    pub email: String,
 }
